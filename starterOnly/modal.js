@@ -28,42 +28,51 @@ spanX.addEventListener("click", function(e) {
 
 const checkBox = document.getElementById("checkbox1")
 
-// INITIALISATION DES PARAMETRES DE LA FONCTION 
+// INITIALISATION DES PARAMETRES DE LA FONCTION PRINCIPALE
 
 const firstName = document.getElementById ("first")
-const myRegex = /^.{6,}$/
-
+const myRegex = /^.{2,}$/
+// ===== Prénom ===== 
 const checkPrenom = () => {
   if(firstName.value.trim() === ""){
+    firstName.classList.add('error-form')
+    firstName.innerHTML = 'TEST'
     console.log("PRENOM")
     return false
   }
 
+  
   if (!(myRegex.test(firstName.value))){
     console.log("PRENOM++")
+    firstName.classList.add('error-form')
     return false
   }
+  firstName.classList.remove('error-form')
   return true
+  
 }
 
 const lastName = document.getElementById ("last")
-
+// ===== NOM =====
 const checkNom = () => {
-  if(lastName.value.trim() == ""){
+  if(lastName.value.trim() === ""){
+    lastName.classList.add('error-form')
     console.log("NOM")
     return false
   }
 
-  if (myRegex.test(lastName.value) == false){
+  if (!(myRegex.test(lastName.value))){
+    lastName.classList.add('error-form')
     console.log("NOM++")
     return false
   }
+  lastName.classList.remove('error-form')
   return true
 }
 
 const eMailvalidator = document.getElementById("email")
 const regexEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/
-
+// ===== MAIL =====
 const checkMail = () => {
   if (!(regexEmail.test(eMailvalidator.value))){
     console.log("Test de l'Email")
@@ -77,9 +86,10 @@ const checkMail = () => {
   return true
 }
 
+
 const birtDay = document.getElementById('birthdate')
 const regexNumber = /^[0-9]+(-[0-9]+)+$/
-
+// ===== DATEPICKER =====
 const checkBirthDay = () =>  {
   if (!(regexNumber.test(birtDay.value))){
     console.log("PROBLEME DATE++")
@@ -89,18 +99,10 @@ const checkBirthDay = () =>  {
 }
 
 const quantityTournois = document.getElementById('quantity')
-
+// ===== NOMBRE DE TOURNOIS =====
 const checkTournois = () => {
-  if(quantityTournois.value.trim() == ""){
+  if(quantityTournois.value.trim() === ""){
     console.log("Quantité tournois non valide")
-    return false
-  }
-  return true
-}
-
-const checkRadio = () => {
-  if(!(radioInputUn.checked || radioInputDeux.checked || radioInputTrois.checked || radioInputQuatre.checked || radioInputCinq.checked || radioInputSix.checked)){
-    console.log("RADIO NE FONCTIONNE PAS")
     return false
   }
   return true
@@ -112,16 +114,25 @@ const radioInputTrois = document.getElementById('location3')
 const radioInputQuatre = document.getElementById('location4')
 const radioInputCinq = document.getElementById('location5')
 const radioInputSix = document.getElementById('location6')
-
-const validCheckBoxChecked = () => {
-  if(!checkBox.checked){
-    console.log("HEYPPP")
+// ===== BOUTONS RADIO =====
+const checkRadio = () => {
+  if(!(radioInputUn.checked || radioInputDeux.checked || radioInputTrois.checked || radioInputQuatre.checked || radioInputCinq.checked || radioInputSix.checked)){
+    console.log("RADIO NE FONCTIONNE PAS")
     return false
   }
   return true
 }
 
-// FONCTION EVENEMENT ENVOIE SUR AJAX
+// ===== CONDITIONS OBLIGATOIRE =====
+const validCheckBoxChecked = () => {
+  if(!checkBox.checked){
+    console.log("Champs obligatoire")
+    return false
+  }
+  return true
+}
+
+// FONCTION EVENEMENT ENVOIE SUR AJAX =====>
 
 const myForm = document.getElementById("myForm")
 

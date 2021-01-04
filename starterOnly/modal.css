@@ -10,6 +10,9 @@
 }
 
 /* Landing Page */
+.error-form{
+  border: #f00 3px solid;
+}
 
 body {
   margin: 0;
