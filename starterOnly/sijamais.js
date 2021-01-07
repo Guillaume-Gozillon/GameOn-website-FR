@@ -1,3 +1,12 @@
+const checkPrenomIfZero = () => {
+  if((firstName.value.trim() === "") && (!(myRegex.test(firstName.value)))){
+    firstError.classList.add('visible')
+    firstName.classList.add('bordure')
+  } else {
+    console.log("PRENOM", firstName.value)
+  }
+}
+
 function editNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {

@@ -239,6 +239,9 @@ input {
   color: red;
 }
 
+.green{
+  border: green 3px solid;
+}
 
 .bordure{
   border: red 3px solid;
