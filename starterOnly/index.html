@@ -40,32 +40,37 @@
       <div class="content">
         <span id = "close-modale"class="close"></span>
         <div class="modal-body">
-          <form id = "myForm" name="reserve" action="index.html" method="GET">
+          <form id = "myForm" name="reserve" action="index.html" method="get">
             <div class="formData">
               <label for="first">Prénom</label>
               <br>
               <input class="text-control" type="text" id="first" name="first"/>
               <br>
+              <p id="error1" class="yepe">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last"/>
               <br>
+              <p id="error2" class="yepe">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
             </div>
             <div class="formData"> 
               <label for="email">E-mail</label>
               <br>
               <input class="text-control" type="email" id="email" name="email"/>
               <br>
+              <p id="error3" class="yepe">Veuillez une adresse mail valide.</p>
             </div>
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2020-12-31"/>
               <br>
+              <p id="error4" class="yepe">Veuillez une date valide.</p>
             </div>
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" pattern="^[0-9]+$">
+              <p id="error5" class="yepe">Veuillez une date valide.</p>
             </div>
             <p class="text-label">Quelles villes ?</p>
             <div class="formData">
