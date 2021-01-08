@@ -37,9 +37,10 @@ const radioInputSix = document.getElementById('location6')
 
 //REGEX 
 
-const regexEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/
-const myRegex = /^.{2,}$/
-const regexNumber = /^[0-9]+(-[0-9]+)+$/
+// Utiliser des let pour que JS parcours tous le script
+                   
+const myRegex = RegExp(/^.{2,}$/)
+
 
 // EVENT
 
@@ -79,6 +80,7 @@ function verifFirstName (firstName){
   else{
    valid = false 
   }
+  console.log('TEST Booléens Prénom', valid)
   return valid
 }
 
@@ -97,10 +99,12 @@ function verifLastName (lastName){
 }
 
 // ===== MAIL =====
-
+// La fonction récupere la regex et non un objet
 function verifeMailvalidator (eMailvalidator){
+  const regexEmail = RegExp(/^[a-z0-9.-]+@[a-z_]+?.[a-z]{2,3}$/);
   let valid = false
-  if(!(regexEmail.test(eMailvalidator.value))){
+  let regexValid = regexEmail.test(eMailvalidator)
+  if(regexValid){
     valid = true
   }
   else{
@@ -113,21 +117,42 @@ function verifeMailvalidator (eMailvalidator){
 // ===== DATEPICKER =====
 
 function verifBirtDay (birtDay){
-  console.log('DATE', birtDay)
+  let valid = false
+  const regexNumber = RegExp(/^[0-9]+(-[0-9]+)+$/)
+
+  if(regexNumber.test(birtDay)){
+    valid = true
+  }
+  else{
+    valid = false
+  }
+  console.log('TEST Booléens DATE', valid)
+  return valid
 }
 
-// ===== NOMBRE DE TOURNOIS =====
+// ===== TOURNOIS =====
 
 function verifQuantityTournois (quantityTournois){
-  console.log('TOURNOIS', quantityTournois)
+  let valid = false
+  const regexNombre = RegExp(/^\d+$/)
+  if(regexNombre.test(quantityTournois)){
+    valid = true
+  }
+  else{
+    valid = false
+  }
+  console.log('Tournois', valid)
+  return valid
 }
 
 // ===== BOUTONS RADIO =====
+
 /*
 function verifLastName (lastName){
   console.log(lastName)
 }
 */
+
 // ===== CONDITIONS OBLIGATOIRE =====
 
 function verifCheckBox (checkBox){
