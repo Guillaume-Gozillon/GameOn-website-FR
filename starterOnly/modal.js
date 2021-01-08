@@ -35,6 +35,8 @@ const radioInputQuatre = document.getElementById('location4')
 const radioInputCinq = document.getElementById('location5')
 const radioInputSix = document.getElementById('location6')
 
+const inputGeneral = [radioInputUn, radioInputDeux, radioInputTrois, radioInputQuatre, radioInputCinq, radioInputSix]
+
 //REGEX 
 
 // Utiliser des let pour que JS parcours tous le script
@@ -66,6 +68,7 @@ function verifAll() {
   verifeMailvalidator(eMailvalidator.value)
   verifBirtDay(birtDay.value)
   verifQuantityTournois(quantityTournois.value)
+  verifCheckRadio(radioInputUn.value, radioInputDeux.value, radioInputTrois.value, radioInputQuatre.value, radioInputCinq.value, radioInputSix.value)
   verifCheckBox(checkBox.value)
 }
 
@@ -141,20 +144,35 @@ function verifQuantityTournois (quantityTournois){
   else{
     valid = false
   }
-  console.log('Tournois', valid)
+  console.log('TEST Tournois', valid)
   return valid
 }
 
 // ===== BOUTONS RADIO =====
 
-/*
-function verifLastName (lastName){
-  console.log(lastName)
+function verifCheckRadio (inputGeneral){
+
+  let valid = false
+  console.log(inputGeneral[4])
+  for (let i = 0; i < inputGeneral.length; i++){
+    if((inputGeneral.checked) === true){
+      valid = true
+    }
+  }
+  console.log("RADIO NE FONCTIONNE PAS", valid)
+  return valid
 }
-*/
 
 // ===== CONDITIONS OBLIGATOIRE =====
 
 function verifCheckBox (checkBox){
-  console.log('CHECKBOX', checkBox)
+  let valid = false
+  if(checkBox.checked){
+    valid = true
+  }
+  else{
+    valid = false
+  }
+  console.log('CHECKBOX', valid)
+  return valid
 }
