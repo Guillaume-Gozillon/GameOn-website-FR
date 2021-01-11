@@ -36,19 +36,10 @@ let radioInputTrois = document.getElementById('location3')
 let radioInputQuatre = document.getElementById('location4')
 let radioInputCinq = document.getElementById('location5')
 let radioInputSix = document.getElementById('location6')
+
 const aTestwithArrayx = [radioInputUn, radioInputDeux, radioInputTrois, radioInputQuatre, radioInputCinq, radioInputSix]
 
 const locationChecked = document.getElementById('checkbox1')
-
-/*
-  verifFirstName(firstName.value)
-  verifLastName(lastName.value)
-  verifeMailvalidator(eMailvalidator.value)
-  verifBirtDay(birtDay.value)
-  verifQuantityTournois(quantityTournois.value)
-  verifCheckRadio(aTestwithArrayx)
-  verifCheckBox(locationChecked)
-*/
 
 // Utiliser des let pour que JS parcours tous le script
                    
@@ -71,43 +62,40 @@ function launchModal(e) {
 // Envoie submit
 
 function verifAll() {
-
-  verifFirstName(firstName.value)
-  verifLastName(lastName.value)
-  verifeMailvalidator(eMailvalidator.value)
-  verifBirtDay(birtDay.value)
-  verifQuantityTournois(quantityTournois.value)
+  verifFirstName(firstName)
+  verifLastName(lastName)
+  verifeMailvalidator(eMailvalidator)
+  verifBirtDay(birtDay)
+  verifQuantityTournois(quantityTournois)
   verifCheckRadio(aTestwithArrayx)
   verifCheckBox(locationChecked)
-
 }
 
 myForm.addEventListener('submit', function(e) {
   verifAll()
-  if((verifFirstName(firstName.value) && verifLastName(lastName.value) && verifeMailvalidator(eMailvalidator.value) && verifBirtDay(birtDay.value) && verifQuantityTournois(quantityTournois.value) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked)) === false){
+  if((verifFirstName(firstName) && verifLastName(lastName) && verifeMailvalidator(eMailvalidator) && verifBirtDay(birtDay) && verifQuantityTournois(quantityTournois) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked)) === false){
     e.preventDefault()
     return
   }
+  else{
+    alert('TEST')
+  }
 })
-
 
 // ===== Prénom =====
 
 function verifFirstName (firstName){
   let valid = false
-  if(firstName.length > 1){
+  if(firstName.value.length > 1){
     valid = true
     firstName.classList.add('green')
   }
   else{
    valid = false 
-    try{
-      firstError.classList.add('visible')
-      firstName.classList.add('bordure')
-    }
-    catch{}
-  }
+   firstError.classList.add('visible')
+   firstName.classList.add('bordure')
   console.log('TEST Booléens Prénom', valid)
+  }
   return valid
 }
 
@@ -115,29 +103,36 @@ function verifFirstName (firstName){
 
 function verifLastName (lastName){
   let valid = false
-  if(lastName.length > 1){
+  lastName.value
+  if(lastName.value.length > 1){
     valid = true
+    lastName.classList.add('green')
   }
   else{
     valid = false
     secondError.classList.add('visible')
+    lastName.classList.add('bordure')
   }
   console.log('TEST Booléens LASTNAME', valid)
   return valid
 }
 
 // ===== MAIL =====
+
 // La fonction récupere la regex et non un objet
+
 function verifeMailvalidator (eMailvalidator){
   const regexEmail = RegExp(/^[a-z0-9.-]+@[a-z_]+?.[a-z]{2,3}$/);
   let valid = false
-  let regexValid = regexEmail.test(eMailvalidator)
+  let regexValid = regexEmail.test(eMailvalidator.value)
   if(regexValid){
     valid = true
+    eMailvalidator.classList.add('green')
   }
   else{
     valid = false
     thirdError.classList.add('visible')
+    eMailvalidator.classList.add('bordure')
   }
   console.log('TEST Booléens EMAIL', valid)
   return valid
@@ -149,12 +144,14 @@ function verifBirtDay (birtDay){
   let valid = false
   const regexNumber = RegExp(/^[0-9]+(-[0-9]+)+$/)
 
-  if(regexNumber.test(birtDay)){
+  if(regexNumber.test(birtDay.value)){
     valid = true
+    birtDay.classList.add('green')
   }
   else{
     valid = false
     forthdError.classList.add('visible')
+    birtDay.classList.add('bordure')
   }
   console.log('TEST Booléens DATE', valid)
   return valid
@@ -165,12 +162,14 @@ function verifBirtDay (birtDay){
 function verifQuantityTournois (quantityTournois){
   let valid = false
   const regexNombre = RegExp(/^\d+$/)
-  if(regexNombre.test(quantityTournois)){
+  if(regexNombre.test(quantityTournois.value)){
     valid = true
+    quantityTournois.classList.add('green')
   }
   else{
     valid = false
     fifthError.classList.add('visible')
+    quantityTournois.classList.add('bordure')
   }
   console.log('TEST Tournois', valid)
   return valid
@@ -184,6 +183,7 @@ function verifCheckRadio (aTestwithArrayx){
 
   if((radioInputUn.checked || radioInputDeux.checked || radioInputTrois.checked || radioInputQuatre.checked || radioInputCinq.checked || radioInputSix.checked) == true){
     valid = true
+
   }
   else{
     valid = false
@@ -199,61 +199,12 @@ function verifCheckBox (locationChecked){
   let valid = false
   if(locationChecked.checked == true){
     valid = true
+    locationChecked.classList.add('green')
   }
   else{
     valid = false
     seventhError.classList.add('visible')
   }
   console.log('CHECKBOX', valid)
-
   return valid
 }
-/*
-myForm.addEventListener('submit', function(e) {
-  if(!(verifFirstName(firstName.value) && verifLastName(lastName.value) && verifeMailvalidator(eMailvalidator.value) && verifBirtDay(birtDay.value) && verifQuantityTournois(quantityTournois.value) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked))){
-
-  }
-})
-*/
-/*
-function verifAll() {
-
-  let valid_all = true
-
-  if((verifFirstName(firstName.value) && verifLastName(lastName.value) && verifeMailvalidator(eMailvalidator.value) && verifBirtDay(birtDay.value) && verifQuantityTournois(quantityTournois.value) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked)) === true){
-    valid_all = true
-  }
-  else{
-    valid_all = false
-  }
-  console.log('Test GENERAL', valid_all)
-  return valid_all
-}
-
-myForm.addEventListener('submit', function(e) {
-  if(valid_all === false){
-    e.preventDefault()
-  } return
-})
-
-
-///////////////////////////
-
-
-
-  function verifCheckRadio (aTestwithArrayx){
-
-    let valid = false
-    
-    for(Element of aTestwithArrayx){
-      if(aTestwithArrayx[Element].checked == true){
-        valid = true
-      }
-      else{
-        valid = false
-      }
-    }
-    console.log('ARRAY', valid)
-    return valid
-  }
-*/
