@@ -59,18 +59,18 @@
               <br>
               <input class="text-control" type="email" id="email" name="email"/>
               <br>
-              <p id="error3" class="yepe">Veuillez une adresse mail valide.</p>
+              <p id="error3" class="yepe">Veuillez indiquer une adresse mail valide.</p>
             </div>
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2020-12-31"/>
               <br>
-              <p id="error4" class="yepe">Veuillez une date valide.</p>
+              <p id="error4" class="yepe">Veuillez indiquer une date valide.</p>
             </div>
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" pattern="^[0-9]+$">
-              <p id="error5" class="yepe">Veuillez une date valide.</p>
+              <p id="error5" class="yepe">Veuillez saisire une valeur numérique.</p>
             </div>
             <p class="text-label">Quelles villes ?</p>
             <div class="formData">
@@ -86,10 +86,14 @@
               <label class="checkbox-label" for="location5"><span class="checkbox-icon"></span>Boston</label>
               <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland"/>
               <label class="checkbox-label" for="location6"><span class="checkbox-icon"></span>Portland</label>
+              <br>
+              <p id="error6" class="yepe">Choisissez une ville.</p>
             </div>
             <div class="formData">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked/>
               <label class="checkbox2-label" for="checkbox1" required><span class="checkbox-icon"></span>J'ai lu et accepté les conditions d'utilisation.</label>
+              <br>
+              <p id="error7" class="yepe">Veuillez accepter les conditions.</p>
               <br>
               <input class="checkbox-input" type="checkbox" id="checkbox2"/>
               <label class="checkbox2-label" for="checkbox2"><span class="checkbox-icon"></span>Je souhaite être prévenu des prochains évènements.</label>
