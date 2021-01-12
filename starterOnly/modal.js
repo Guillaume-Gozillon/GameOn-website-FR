@@ -36,10 +36,7 @@ let radioInputTrois = document.getElementById('location3')
 let radioInputQuatre = document.getElementById('location4')
 let radioInputCinq = document.getElementById('location5')
 let radioInputSix = document.getElementById('location6')
-
 const aTestwithArrayx = [radioInputUn, radioInputDeux, radioInputTrois, radioInputQuatre, radioInputCinq, radioInputSix]
-
-const closemodal2 = document.querySelector(".close2");
 
 const locationChecked = document.getElementById('checkbox1')
 
@@ -47,8 +44,7 @@ const locationChecked = document.getElementById('checkbox1')
                    
 const myRegex = RegExp(/^.{2,}$/)
 
-// EVENT
-
+// EVENT pour fermer la modale avec X
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 spanX.addEventListener("click", function(e) {
@@ -61,9 +57,7 @@ function launchModal(e) {
   modalbg.style.display = "block";
 }
 
-
-// Envoie submit
-
+// Fonction qui verifie toute les conditions
 function verifAll() {
   verifFirstName(firstName)
   verifLastName(lastName)
@@ -74,7 +68,7 @@ function verifAll() {
   verifCheckBox(locationChecked)
 }
 
-
+// EVENT qui prend en compte toute les conditions pour faire un AJAX au submit
 myForm.addEventListener('submit', function(e) {
   verifAll()
   if((verifFirstName(firstName) && verifLastName(lastName) && verifeMailvalidator(eMailvalidator) && verifBirtDay(birtDay) && verifQuantityTournois(quantityTournois) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked)) === false){
@@ -84,6 +78,7 @@ myForm.addEventListener('submit', function(e) {
   alert('Merci ! Votre réservation a été reçue.')
 })
 
+// CONDITIONS
 // ===== Prénom =====
 
 function verifFirstName (firstName){
@@ -124,7 +119,6 @@ function verifLastName (lastName){
 }
 
 // ===== MAIL =====
-
 // La fonction récupere la regex et non un objet
 
 function verifeMailvalidator (eMailvalidator){
