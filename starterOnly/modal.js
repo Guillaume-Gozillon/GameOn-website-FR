@@ -39,6 +39,8 @@ let radioInputSix = document.getElementById('location6')
 
 const aTestwithArrayx = [radioInputUn, radioInputDeux, radioInputTrois, radioInputQuatre, radioInputCinq, radioInputSix]
 
+const closemodal2 = document.querySelector(".close2");
+
 const locationChecked = document.getElementById('checkbox1')
 
 // Utiliser des let pour que JS parcours tous le script
@@ -59,6 +61,7 @@ function launchModal(e) {
   modalbg.style.display = "block";
 }
 
+
 // Envoie submit
 
 function verifAll() {
@@ -76,9 +79,6 @@ myForm.addEventListener('submit', function(e) {
   if((verifFirstName(firstName) && verifLastName(lastName) && verifeMailvalidator(eMailvalidator) && verifBirtDay(birtDay) && verifQuantityTournois(quantityTournois) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked)) === false){
     e.preventDefault()
     return
-  }
-  else{
-    alert('TEST')
   }
 })
 
