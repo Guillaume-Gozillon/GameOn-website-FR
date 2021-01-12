@@ -74,12 +74,14 @@ function verifAll() {
   verifCheckBox(locationChecked)
 }
 
+
 myForm.addEventListener('submit', function(e) {
   verifAll()
   if((verifFirstName(firstName) && verifLastName(lastName) && verifeMailvalidator(eMailvalidator) && verifBirtDay(birtDay) && verifQuantityTournois(quantityTournois) && verifCheckRadio(aTestwithArrayx) && verifCheckBox(locationChecked)) === false){
     e.preventDefault()
     return
   }
+  alert('Merci ! Votre réservation a été reçue.')
 })
 
 // ===== Prénom =====
@@ -89,6 +91,8 @@ function verifFirstName (firstName){
   if(firstName.value.length > 1){
     valid = true
     firstName.classList.add('green')
+    firstError.classList.remove('visible')
+    firstName.classList.remove('bordure')
   }
   else{
    valid = false 
@@ -107,6 +111,8 @@ function verifLastName (lastName){
   if(lastName.value.length > 1){
     valid = true
     lastName.classList.add('green')
+    secondError.classList.remove('visible')
+    lastName.classList.remove('bordure')
   }
   else{
     valid = false
@@ -128,6 +134,8 @@ function verifeMailvalidator (eMailvalidator){
   if(regexValid){
     valid = true
     eMailvalidator.classList.add('green')
+    thirdError.classList.remove('visible')
+    eMailvalidator.classList.remove('bordure')
   }
   else{
     valid = false
@@ -147,6 +155,8 @@ function verifBirtDay (birtDay){
   if(regexNumber.test(birtDay.value)){
     valid = true
     birtDay.classList.add('green')
+    forthdError.classList.remove('visible')
+    birtDay.classList.remove('bordure')
   }
   else{
     valid = false
@@ -165,6 +175,8 @@ function verifQuantityTournois (quantityTournois){
   if(regexNombre.test(quantityTournois.value)){
     valid = true
     quantityTournois.classList.add('green')
+    fifthError.classList.remove('visible')
+    quantityTournois.classList.remove('bordure')
   }
   else{
     valid = false
@@ -183,7 +195,7 @@ function verifCheckRadio (aTestwithArrayx){
 
   if((radioInputUn.checked || radioInputDeux.checked || radioInputTrois.checked || radioInputQuatre.checked || radioInputCinq.checked || radioInputSix.checked) == true){
     valid = true
-
+    sixthError.classList.remove('visible')
   }
   else{
     valid = false
@@ -200,6 +212,7 @@ function verifCheckBox (locationChecked){
   if(locationChecked.checked == true){
     valid = true
     locationChecked.classList.add('green')
+    seventhError.classList.remove('visible')
   }
   else{
     valid = false
