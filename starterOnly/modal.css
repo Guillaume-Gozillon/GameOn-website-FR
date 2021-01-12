@@ -538,37 +538,6 @@ footer {
   }
 }
 
-@media screen and (max-width: 540px) {
-  .hero-content{
-    width: 80%;
-    margin: auto;
-  }
-  .content {
-    margin: 5% auto;
-    width: 100vw;
-    max-width: 500px;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    background: #232323;
-    border-radius: 10px;
-    overflow: hidden;
-    position: fixed;
-    color: #fff;
-    padding-top: 10px;
-    height: 100%;
-  }
-
-  .hero-headline {
-    font-size: 2rem;
-    white-space: normal;
-  }
-
-  .hero-text {
-    width: unset;
-    font-size: 1rem;
-    width: 80%;
-  }
-}
 
 @keyframes modalopen {
   from {
